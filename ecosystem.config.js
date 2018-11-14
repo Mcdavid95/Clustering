@@ -1,12 +1,15 @@
 module.exports = {
-  apps : [
-      {
-        name      : 'API',
-        script    : 'src/app.babel-register.js',
-        exec_mode : 'cluster_mode',
-        instances : 'max'
-      }
-      ],
+  apps : [{
+    name      : 'API',
+    script    : 'app.js',
+    env: {
+      NODE_ENV: 'development'
+    },
+    env_production : {
+      NODE_ENV: 'production'
+    }
+  }],
+
   deploy : {
     production : {
       user : 'node',
